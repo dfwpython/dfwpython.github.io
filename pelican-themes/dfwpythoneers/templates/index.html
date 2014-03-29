@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block content_title %}{% endblock %}
+{% block content %}
+
+<div class="row panel">
+<div class='large-6 columns'>
+<h3>Meeting Schedule</h3>
+<p>We are an active group that has three regularly scheduled events on the 2nd Saturday, 3rd and 4th Thursday of each month
+  in the North Dallas area.
+</p>
+  <h5 class="sidebar-title">Second Saturday Teaching Meeting</h5>
+  <p>Improving Enterprises<br/>
+  16633 Dallas Parkway, Addison, TX</p>
+  <h5 class="sidebar-title">Third Thursday Project Night</h5>
+  <p>Gazebo Burger Frisco<br/>
+  6801 Warren Parkway, Frisco, TX</p>
+  <h5 class="sidebar-title">Forth Thursday Social Dinner</h5>
+  <p>Taco Cabana<br/>
+  15120 Marsh Lane, Addison, TX</p>
+</div>
+
+
+<div class='large-6 columns'>
+<h3>Vision</h3>
+
+<ul>
+  <li>To meet interesting people, to learn new things, to teach others</li>
+  <li>To run some classes, on tools, frameworks, and the language itself</li>
+  <li>To support both face-to-face meetups, and online projects and classes</li>
+  <li>To collaborate on fun projects, to run local coding "sprints"</li>
+  <li>Professional development and mutual support skills advancement</li>
+  <li>Participate in local conferences such as PyTexas</li>
+</ul>
+
+</div>
+</div>
+
+{% if articles %}
+<div class="row">
+    <h3>Recent Posts</h3>
+    {% for article in articles_page.object_list %}        
+
+        {# First item #}
+        {% if loop.first and not articles_page.has_previous() %}
+            <article>
+                <a href="{{ SITEURL }}/{{ article.url }}"><h3 class="article-title">{{ article.title }}</h3></a>
+                {% include 'article_infos.html' %}{{ article.content }}{% include 'article_infos_bottom.html' %}{% include 'comments.html' %}
+            </article>
+
+            {% if loop.length == 1 %}
+                {% include 'pagination.html' %}
+            {% endif %}
+
+            {% if loop.length > 1 %}
+                <hr  class="gradient"/>
+            {% endif %}
+
+        {# other items #}
+        {% else %}
+
+            <article>
+                <a href="{{ SITEURL }}/{{ article.url }}"><h3 class="article-title">{{ article.title }}</h3></a>
+                {% include 'article_infos.html' %}{{ article.summary }}{% include 'article_infos_bottom.html' %}{% include 'comments.html' %}
+                <a class="button radius secondary small right" href="{{ SITEURL }}/{{ article.url }}">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+        {% endif %}
+
+        {% if loop.last %}
+            <!-- /#posts-list -->
+            {% if loop.last and (articles_page.has_previous() or not articles_page.has_previous() and loop.length > 1) %}
+                {% include 'pagination.html' %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+
+{% else %}
+
+{% endif %}
+</div>
+{% endblock content %}
