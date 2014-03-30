@@ -13,7 +13,7 @@ Care must be taken when working with the repository.
 
 Usage
 -----
-
+```bash
 git clone https://github.com/dfwpython/dfwpython.github.io.git
 cd dfwpython.github.io
 git checkout pelican-master <- the pelican project
@@ -31,7 +31,7 @@ cp -R dfwpython-web/output/* ./
 git status/git commit -a
 git push origin master <- publishes content
 git push origin pelican-master
-
+```
 
 Other Notes
 -----------
