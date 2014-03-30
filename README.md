@@ -45,7 +45,9 @@ License
 
 Unless otherwise stated. The content of this repository is Copyright 2014 DFWPythoneers and its contributors.
 A license to use the source code is issued under a BSD-3-Clause license. Further, any content that does not constitute
-source code and not covered under a specified licenese, is licensed under BY-NC-SA version 3.0.
+source code and not covered under a specified licenese, is licensed under a Creative Commons Attribution Share-Alike 3.0
+[CC BY-NC-SA 3.0 US](https://creativecommons.org/licenses/by-nc-sa/3.0/us/).
+
 
 BSD 3-Clause License
 
